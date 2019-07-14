@@ -17,6 +17,7 @@ class Api::V1::FlatmatesController < ApplicationController
 
   def create
     flatmate = Flatmate.new(flatmate_params)
+    flatmate.save
       if flatmate.save
         payload = {flatmate_id: flatmate.id}
         token = issue_token(payload)

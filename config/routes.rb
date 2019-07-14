@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   get "/auth/show", to: "auth#show"
 
   get "/notes", to: "notes#my_notes"
+  resources :notes, only: [:create, :destroy]
 end

@@ -1,10 +1,11 @@
 class AuthController < ApplicationController
+
   def create
   flatmate = Flatmate.find_by(username: params[:username])
   if flatmate && flatmate.authenticate(params[:password])
     payload = {flatmate_id: flatmate.id}
     token = issue_token(payload)
-    render json: { jwt: token, username: flatmate.username}
+    render json: { jwt: token, user: flatmate.username}
   else
     render json: { error: "The token couldn't be created. Login failed."}
   end
