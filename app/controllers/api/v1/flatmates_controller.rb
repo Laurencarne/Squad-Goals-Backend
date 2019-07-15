@@ -8,6 +8,12 @@ class Api::V1::FlatmatesController < ApplicationController
         first_name: flatmate[:first_name],
         last_name: flatmate[:last_name],
         email: flatmate[:email],
+        birthday: flatmate[:birthday],
+        move_in: flatmate[:move_in],
+        rent_due: flatmate[:rent_due],
+        electricity_due: flatmate[:electricity_due],
+        water_due: flatmate[:water_due],
+        gas_due: flatmate[:gas_due],
         id: flatmate[:id]
       }
       flatmates << flatmate_hash
@@ -24,6 +30,27 @@ class Api::V1::FlatmatesController < ApplicationController
         render json: { jwt: token }
       else
         render json: {error: "Signup not successful!"}
+    end
+  end
+
+  def update
+    flatmate = Flatmate.find_by(id: params[:id])
+      if flatmate.update(flatmate_params)
+        flatmate = {
+          username: flatmate[:username],
+          first_name: flatmate[:first_name],
+          last_name: flatmate[:last_name],
+          birthday: flatmate[:birthday],
+          move_in: flatmate[:move_in],
+          rent_due: flatmate[:rent_due],
+          electricity_due: flatmate[:electricity_due],
+          water_due: flatmate[:water_due],
+          gas_due: flatmate[:gas_due],
+          id: flatmate[:id]
+        }
+      render json: flatmate
+    else
+      render json: {error: 'Profile not updated'}
     end
   end
 
