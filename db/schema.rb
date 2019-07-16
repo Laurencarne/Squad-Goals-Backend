@@ -10,12 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_13_110219) do
+ActiveRecord::Schema.define(version: 2019_07_15_143752) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "calenders", force: :cascade do |t|
+    t.integer "flat_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.string "title"
+    t.boolean "allDay"
+    t.datetime "start"
+    t.datetime "end"
+    t.string "description"
+    t.integer "flatmate_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "flatmates", force: :cascade do |t|
+    t.integer "flat_id"
     t.string "username"
     t.string "first_name"
     t.string "last_name"
@@ -26,7 +44,26 @@ ActiveRecord::Schema.define(version: 2019_07_13_110219) do
     t.integer "water_due"
     t.integer "electricity_due"
     t.integer "gas_due"
+    t.string "avatar"
     t.string "password_digest"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "flats", force: :cascade do |t|
+    t.string "name"
+    t.string "flat_key"
+    t.string "address_one"
+    t.string "address_two"
+    t.string "city"
+    t.string "postcode"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "items", force: :cascade do |t|
+    t.integer "shopping_list_id"
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -34,6 +71,21 @@ ActiveRecord::Schema.define(version: 2019_07_13_110219) do
   create_table "notes", force: :cascade do |t|
     t.text "note"
     t.integer "flatmate_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "shopping_lists", force: :cascade do |t|
+    t.integer "flat_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tasks", force: :cascade do |t|
+    t.integer "flat_id"
+    t.string "name"
+    t.string "avatar"
+    t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

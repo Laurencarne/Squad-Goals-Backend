@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  flat_id: 1
+  name: MyString
+  avatar: MyString
+  description: MyString
+
+two:
+  flat_id: 1
+  name: MyString
+  avatar: MyString
+  description: MyString
