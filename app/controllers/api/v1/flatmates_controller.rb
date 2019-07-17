@@ -13,9 +13,9 @@ class Api::V1::FlatmatesController < ApplicationController
   end
 
   def update
-    if current_flatmate.id === params[:id]
+    if current_flatmate.id === params[:id].to_i
       current_flatmate.update(flatmate_params)
-      render json: flatmate, except: [:created_at, :updated_at, :password_digest, :email]
+      render json: current_flatmate, except: [:created_at, :updated_at, :password_digest, :email]
     else
       render json: {error: "Data Not Avaliable"}
     end
