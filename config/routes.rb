@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   post "/auth/create", to: "auth#create"
   get "/auth/show", to: "auth#show"
 
-  patch "/auth/move_in/:id", to: "auth#move_in"
+  patch "/auth/move_in", to: "auth#move_in"
 
   get "/notes", to: "notes#my_notes"
   get "/flat", to: "flats#my_flat"

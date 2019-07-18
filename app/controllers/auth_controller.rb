@@ -31,13 +31,10 @@ class AuthController < ApplicationController
 
   def move_in
     if current_flatmate.id === params[:id].to_i
-      id_flat = Flat.find_by(id: params[:flat_id])
-      debugger
+      id_flat = Flat.find_by(flat_key: params[:flat_key])
       current_flatmate.update(flat_id: id_flat.id)
-      debugger
       render json: current_flatmate, except: [:created_at, :updated_at, :password_digest, :email]
     else
-      debugger
       render json: {error: "Data Not Avaliable"}
     end
   end
