@@ -1,59 +1,9 @@
 class FlatsController < ApplicationController
   before_action :validate_flat, except: [:create]
 
-  def index
+  def my_flat
     flat = Flatmate.find(current_flatmate[:id]).flat
-    render json: flat, except: [:created_at, :updated_at, :flat_key],
-    include: [
-      {
-        :shopping_list => {
-          except: [:created_at, :updated_at, :flat_id],
-          include: [
-            {
-              :items => {
-                except: [:updated_at, :created_at, :shopping_list_id]
-              }
-            }
-          ]
-        },
-        :tasks => {
-          except: [:updated_at, :created_at, :flat_id]
-        },
-        :events => {
-          except: [:updated_at, :created_at]
-        }
-      }
-    ]
-  end
-
-  def show
-    user = current_flatmate
-    flat = Flat.find_by(id: params[:id])
-    if flat.id === user.flat_id
-      render json: flat, except: [:created_at, :updated_at, :flat_key],
-      include: [
-        {
-          :shopping_list => {
-            except: [:created_at, :updated_at, :flat_id],
-            include: [
-              {
-                :items => {
-                  except: [:updated_at, :created_at, :shopping_list_id]
-                }
-              }
-            ]
-          },
-          :tasks => {
-            except: [:updated_at, :created_at, :flat_id]
-          },
-          :events => {
-            except: [:updated_at, :created_at]
-          }
-        }
-      ]
-    else
-      render json: {error: "Data Not Avaliable"}
-    end
+      render json: flat, except: [:updated_at, :created_at]
   end
 
   def create
@@ -94,7 +44,7 @@ class FlatsController < ApplicationController
 private
 
   def flat_params
-    params.require(:flat).permit(:name, :flat_key, :calender_id, :shoppinglist_id, :address_one, :address_two, :city, :postcode)
+    params.require(:flat).permit(:name, :flat_key, :address_one, :address_two, :city, :postcode)
   end
 
 end

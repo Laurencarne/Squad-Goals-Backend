@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   resources :items, only: [:index, :show, :create, :update, :destroy]
   resources :events, only: [:index, :show, :create, :update, :destroy]
-  resources :flats, only: [:index, :show, :create, :update, :destroy]
+  resources :flats, only: [:create, :update, :destroy]
   resources :notes, only: [:show, :create, :destroy]
 
   namespace :api do
@@ -17,5 +17,6 @@ Rails.application.routes.draw do
   patch "/auth/move_in/:id", to: "auth#move_in"
 
   get "/notes", to: "notes#my_notes"
+  get "/flat", to: "flats#my_flat"
 
 end
