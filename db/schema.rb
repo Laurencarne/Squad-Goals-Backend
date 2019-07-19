@@ -86,6 +86,8 @@ ActiveRecord::Schema.define(version: 2019_07_15_143752) do
     t.string "name"
     t.string "avatar"
     t.string "description"
+    t.integer "flatmate_id"
+    t.datetime "week"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

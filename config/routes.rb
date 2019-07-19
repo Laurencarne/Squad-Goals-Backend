@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :events, only: [:index, :show, :create, :update, :destroy]
   resources :flats, only: [:create, :update, :destroy]
   resources :notes, only: [:show, :create, :destroy]
+  resources :tasks
 
   namespace :api do
     namespace :v1 do
@@ -18,5 +19,7 @@ Rails.application.routes.draw do
 
   get "/notes", to: "notes#my_notes"
   get "/flat", to: "flats#my_flat"
+
+  get "/my_tasks", to: "tasks#my_tasks"
 
 end

@@ -12,7 +12,28 @@ class AuthController < ApplicationController
   end
 
   def show
-    if logged_in
+    if has_flat
+      render json: current_flatmate, except: [:created_at, :updated_at, :password_digest],
+      include: [
+        {
+          :flat => {
+            except: [:created_at, :updated_at, :flat_id]
+          },
+          :notes => {
+            except: [:created_at, :updated_at, :flatmate_id]
+          },
+          :events => {
+            except: [:created_at, :updated_at, :flatmate_id]
+          },
+          :tasks => {
+            except: [:created_at, :updated_at, :flat_id]
+          },
+          :items => {
+            except: [:created_at, :updated_at, :shopping_list_id]
+          }
+        }
+      ]
+    elsif logged_in
       render json: current_flatmate, except: [:created_at, :updated_at, :password_digest],
       include: [
         {
@@ -25,7 +46,7 @@ class AuthController < ApplicationController
         }
       ]
     else
-      render json: {error: "Incorrect token."}
+      render json: {error: "Data Not Avaliable"}
     end
   end
 
