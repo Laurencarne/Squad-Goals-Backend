@@ -17,12 +17,16 @@ class TasksController < ApplicationController
   end
 
   def create
-    task = Task.create(task_params)
-    render json: task
+    task = Task.new(task_params)
+    if task.save
+      render json: task
+    else
+      render json: {error: 'Server Unavaliable'}
+    end
   end
 
   def update
-    task = current_flatmate.tasks.select { |task| task.id === params[:flatmate_id] }
+    task = current_flatmate.tasks.select { |task| task.id === params[:id] }
     if task.length > 0
       task[0].update(task_params)
       render json: task
