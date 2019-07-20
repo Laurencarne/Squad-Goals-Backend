@@ -17,7 +17,14 @@ class AuthController < ApplicationController
       include: [
         {
           :flat => {
-            except: [:created_at, :updated_at, :flat_id]
+            except: [:created_at, :updated_at, :flat_id],
+            include: [
+              {
+                :flatmates => {
+                  only: [:id, :first_name, :avatar]
+                }
+              }
+            ]
           },
           :notes => {
             except: [:created_at, :updated_at, :flatmate_id]
@@ -25,11 +32,11 @@ class AuthController < ApplicationController
           :events => {
             except: [:created_at, :updated_at, :flatmate_id]
           },
-          :tasks => {
-            except: [:created_at, :updated_at, :flat_id]
-          },
           :items => {
             except: [:created_at, :updated_at, :shopping_list_id]
+          },
+          :tasks => {
+            except: [:created_at, :updated_at, :flat_id]
           }
         }
       ]
