@@ -33,7 +33,7 @@ class AuthController < ApplicationController
             except: [:created_at, :updated_at, :flatmate_id]
           },
           :items => {
-            except: [:created_at, :updated_at, :shopping_list_id]
+            except: [:created_at, :updated_at]
           },
           :tasks => {
             except: [:created_at, :updated_at, :flat_id]

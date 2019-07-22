@@ -23,6 +23,7 @@ Note.create(note: "Spongebob's Note.", flatmate_id: 6)
 
 ShoppingList.create(flat_id: 1)
 ShoppingList.create(flat_id: 2)
+ShoppingList.create(flat_id: 3)
 
 Item.create(shopping_list_id: 1, name: "Toilet Roll")
 Item.create(shopping_list_id: 1, name: "Tin Foil")
@@ -39,6 +40,7 @@ Task.create(flat_id: 2, name: "Dust the Wands", avatar: "https://i.imgur.com/YXX
 
 Calender.create(flat_id: 1)
 Calender.create(flat_id: 2)
+Calender.create(flat_id: 3)
 
 Event.create(flatmate_id: 1, title: "Lunch", allDay: false, start: DateTime.parse('2019-07-21-11-00'), end: DateTime.parse('2019-07-21-13'), description: "Sherlock's Event")
 Event.create(flatmate_id: 2, title: "Dinner", allDay: false, start: DateTime.parse('2019-07-19-19-00'), end: DateTime.parse('2019-07-21-23'), description: "Watson's Event")
