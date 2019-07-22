@@ -8,10 +8,10 @@ class CreateFlatmates < ActiveRecord::Migration[5.2]
       t.string :email
       t.date :birthday
       t.date :move_in
-      t.integer :rent_due
-      t.integer :water_due
-      t.integer :electricity_due
-      t.integer :gas_due
+      t.date :rent_due
+      t.date :water_due
+      t.date :electricity_due
+      t.date :gas_due
       t.string :avatar
       t.string :password_digest
 
