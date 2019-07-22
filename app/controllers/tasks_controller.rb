@@ -35,7 +35,7 @@ class TasksController < ApplicationController
   end
 
   def destroy
-    task = current_flatmate.tasks.select { |task| task.id === params[:id] }
+    task = current_flatmate.tasks.select { |task| task.id === params[:id].to_i }
     if task.length > 0
       task[0].destroy
       render json: {message: "Task Successfully Deleted"}
