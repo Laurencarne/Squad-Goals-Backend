@@ -8,5 +8,11 @@ class Flatmate < ApplicationRecord
   has_many :items, through: :shopping_list
 
   has_secure_password
-  validates :username, uniqueness: {case_sensitive: false}
+  # validates :username, :email, uniqueness: true
+  # validates :username, :password, length: {in: 6..20}
+  # validates :first_name, :last_name, length: {in: 2..50}
+  # validates :email, confirmation: { case_sensitive: false }
+  # validates :email_confirmation, presence: true
+  # validates :email, length: {maximum: 100}
+
 end

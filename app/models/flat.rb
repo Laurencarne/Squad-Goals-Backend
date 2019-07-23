@@ -6,4 +6,6 @@ class Flat < ApplicationRecord
   has_many :items, through: :shopping_list
   has_many :tasks
 
+  # validates :name, length: { in: 2..50 }
+
 end
