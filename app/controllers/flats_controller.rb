@@ -24,7 +24,14 @@ class FlatsController < ApplicationController
     flat = current_flatmate.flat
     if flat
       flat.update(flat_params)
-      render json: flat
+      render json: flat, except: [:created_at, :updated_at, :flat_id],
+        include: [
+          {
+            :flatmates => {
+              only: [:id, :first_name, :avatar]
+            }
+          }
+        ]
     else
       render json: {error: "Update Unsuccessful"}
     end

@@ -2,6 +2,7 @@ class Api::V1::FlatmatesController < ApplicationController
   before_action :validate_logged_in, except: [:create]
 
   def create
+    
     flatmate = Flatmate.new(flatmate_params)
       if flatmate.save
         payload = {flatmate_id: flatmate.id}
