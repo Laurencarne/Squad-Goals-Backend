@@ -5,7 +5,7 @@ class CreateEvents < ActiveRecord::Migration[5.2]
       t.boolean :allDay
       t.datetime :start
       t.datetime :end
-      t.string :description
+      t.string :desc
       t.integer :flatmate_id
 
       t.timestamps

@@ -1,16 +1,16 @@
 class EventsController < ApplicationController
   before_action :validate_logged_in
 
-  # def index
-  #   flatmate = current_flatmate
-  #   if flatmate.flat
-  #     events = flatmate.flat.events
-  #   else
-  #     events = flatmate.events
-  #   end
-  #   render json: events, except: [:created_at, :updated_at]
-  # end
-  #
+  def index
+    flatmate = current_flatmate
+    if flatmate.flat
+      events = flatmate.flat.events
+    else
+      events = flatmate.events
+    end
+    render json: events, except: [:created_at, :updated_at, :flatmate_id]
+  end
+
   # def show
   #   flatmate = current_flatmate
   #   event = Event.find_by(id: params[:id])

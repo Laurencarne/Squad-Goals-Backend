@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 2019_07_15_143752) do
     t.boolean "allDay"
     t.datetime "start"
     t.datetime "end"
-    t.string "description"
+    t.string "desc"
     t.integer "flatmate_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
