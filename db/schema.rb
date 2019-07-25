@@ -10,10 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_15_143752) do
+ActiveRecord::Schema.define(version: 2019_07_25_132129) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bill_splits", force: :cascade do |t|
+    t.integer "flatmate_id"
+    t.integer "bill_id"
+    t.float "total_owed"
+    t.boolean "paid"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "bills", force: :cascade do |t|
+    t.string "name"
+    t.float "total"
+    t.string "desc"
+    t.integer "flatmate_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "calenders", force: :cascade do |t|
     t.integer "flat_id"

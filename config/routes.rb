@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :bill_splits, only: [:create]
+  resources :bills, only: [:create]
   resources :items, only: [:index, :show, :create, :update, :destroy]
   resources :events, only: [:index, :show, :create, :update, :destroy]
   resources :flats, only: [:create, :update, :destroy]

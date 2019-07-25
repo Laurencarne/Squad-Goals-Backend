@@ -8,7 +8,7 @@ class EventsController < ApplicationController
     else
       events = flatmate.events
     end
-    render json: events, except: [:created_at, :updated_at, :flatmate_id]
+    render json: events, except: [:created_at, :updated_at]
   end
 
   # def show

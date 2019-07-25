@@ -6,6 +6,8 @@ class Flatmate < ApplicationRecord
   has_many :tasks, through: :flat
   has_one :shopping_list, through: :flat
   has_many :items, through: :shopping_list
+  has_many :bill_splits
+  has_many :bills, through: :bill_splits
 
   has_secure_password
   # validates :username, :email, uniqueness: true

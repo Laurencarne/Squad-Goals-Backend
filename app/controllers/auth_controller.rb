@@ -26,6 +26,16 @@ class AuthController < ApplicationController
               }
             ]
           },
+          :bills => {
+            except: [:created_at, :updated_at],
+            include: [
+              {
+                :bill_splits => {
+                  except: [:created_at, :updated_at]
+                }
+              }
+            ]
+          },
           :notes => {
             except: [:created_at, :updated_at, :flatmate_id]
           },
