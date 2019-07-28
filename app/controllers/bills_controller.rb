@@ -2,7 +2,6 @@ class BillsController < ApplicationController
   before_action :validate_flat
 
   def create
-    debugger
     bill = Bill.create(bill_params)
 
     render json: bill

@@ -51,8 +51,8 @@ Event.create(flatmate_id: 6, title: "Sleep Over", allDay: true, start: DateTime.
 Event.create(flatmate_id: 6, title: "Sleep Over Take Two", allDay: true, start: DateTime.parse('2019-07-26-11-00'), end: DateTime.parse('2019-07-29-13'), desc: "Spongebob's Event Two")
 
 Bill.create(name: "Friday Take Out", total: 27.99, desc: "Pizza takeout for Love Island", flatmate_id: 7)
-Bill.create(name: "Friday Take Out", total: 40.00, desc: "Wine for girls night", flatmate_id: 8)
-Bill.create(name: "Friday Take Out", total: 135, desc: "Tickets for the theatre", flatmate_id: 9)
+Bill.create(name: "Party Time", total: 40.00, desc: "Wine for girls night", flatmate_id: 8)
+Bill.create(name: "Theatre Ladies", total: 135, desc: "Tickets for the theatre", flatmate_id: 9)
 
 BillSplit.create(flatmate_id: 7, bill_id: 1, total_owed: 9.33, paid: false)
 BillSplit.create(flatmate_id: 8, bill_id: 1, total_owed: 9.33, paid: false)
