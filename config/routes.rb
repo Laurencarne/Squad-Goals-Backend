@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :bill_splits, only: [:create]
+  resources :bill_splits, only: [:create, :update]
   resources :bills, only: [:create]
   resources :items, only: [:index, :show, :create, :update, :destroy]
   resources :events, only: [:index, :show, :create, :update, :destroy]

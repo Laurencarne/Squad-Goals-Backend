@@ -4,7 +4,14 @@ class BillsController < ApplicationController
   def create
     bill = Bill.create(bill_params)
 
-    render json: bill
+    render json: bill, except: [:created_at, :updated_at],
+      include: [
+        {
+          :bill_splits => {
+            except: [:created_at, :updated_at]
+          }
+        }
+      ]
   end
 
   private
